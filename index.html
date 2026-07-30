@@ -9,19 +9,17 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔷</text></svg>" />
 
-  <!-- Google Fonts: Inter (body/UI) + Manrope (headings) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Local fonts: Inter (body/UI) + Manrope (headings) -->
+  <link rel="stylesheet" href="assets/vendor/fonts.css" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Local Font Awesome -->
+  <link rel="stylesheet" href="assets/vendor/fontawesome.css" />
 
-  <!-- AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+  <!-- Local AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="assets/vendor/aos.css" />
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Local Tailwind runtime -->
+  <script src="assets/vendor/tailwind.js"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -131,7 +129,7 @@
           <p class="hero-eyebrow">
             <span class="hero-eyebrow-line" aria-hidden="true"></span> Hello, I'm
           </p>
-          <h1 class="hero-name relative font-serif text-6xl sm:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight mb-5" data-watermark="Umang">
+          <h1 class="hero-name relative font-serif text-6xl sm:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight mb-5">
             Umang
           </h1>
           <h2 class="font-serif italic text-2xl sm:text-3xl text-muted dark:text-dark-muted mb-7 h-10 font-normal">
@@ -316,7 +314,7 @@
           <article class="project-card" data-aos="fade-up" data-aos-delay="0">
             <div class="relative overflow-hidden rounded-t-card">
               <span class="project-index" aria-hidden="true">01</span>
-              <img src="https://placehold.co/500x320/5E8578/222A2E?text=Laravel+CRM" alt="Laravel CRM for WooCommerce e-commerce platform" class="project-img" loading="lazy" width="500" height="320" />
+              <img src="assets/images/project-crm.svg" alt="Laravel CRM for WooCommerce e-commerce platform" class="project-img" loading="lazy" width="500" height="320" />
             </div>
             <div class="p-6">
               <h3 class="font-bold text-lg mb-2">Laravel CRM for WooCommerce</h3>
@@ -336,7 +334,7 @@
           <article class="project-card" data-aos="fade-up" data-aos-delay="100">
             <div class="relative overflow-hidden rounded-t-card">
               <span class="project-index" aria-hidden="true">02</span>
-              <img src="https://placehold.co/500x320/315B52/F7F5F0?text=Hospital+Management" alt="Hospital Management System project" class="project-img" loading="lazy" width="500" height="320" />
+              <img src="assets/images/project-hms.svg" alt="Hospital Management System project" class="project-img" loading="lazy" width="500" height="320" />
             </div>
             <div class="p-6">
               <h3 class="font-bold text-lg mb-2">Hospital Management System</h3>
@@ -355,7 +353,7 @@
           <article class="project-card" data-aos="fade-up" data-aos-delay="200">
             <div class="relative overflow-hidden rounded-t-card">
               <span class="project-index" aria-hidden="true">03</span>
-              <img src="https://placehold.co/500x320/222A2E/F7F5F0?text=LMS+Application" alt="Learning Management System web application" class="project-img" loading="lazy" width="500" height="320" />
+              <img src="assets/images/project-lms.svg" alt="Learning Management System web application" class="project-img" loading="lazy" width="500" height="320" />
             </div>
             <div class="p-6">
               <h3 class="font-bold text-lg mb-2">LMS Web Application</h3>
@@ -374,7 +372,7 @@
           <article class="project-card" hidden data-aos="fade-up" data-aos-delay="0">
             <div class="relative overflow-hidden rounded-t-card">
               <span class="project-index" aria-hidden="true">04</span>
-              <img src="https://placehold.co/500x320/FCFBF8/315B52?text=Weather+Dashboard" alt="Screenshot of a weather dashboard application" class="project-img" loading="lazy" width="500" height="320" />
+              <img src="assets/images/project-weather.svg" alt="Screenshot of a weather dashboard application" class="project-img" loading="lazy" width="500" height="320" />
             </div>
             <div class="p-6">
               <h3 class="font-bold text-lg mb-2">Weather Dashboard</h3>
@@ -392,7 +390,7 @@
           <article class="project-card" hidden data-aos="fade-up" data-aos-delay="100">
             <div class="relative overflow-hidden rounded-t-card">
               <span class="project-index" aria-hidden="true">05</span>
-              <img src="https://placehold.co/500x320/5E8578/222A2E?text=Booking+System" alt="Screenshot of an appointment booking system" class="project-img" loading="lazy" width="500" height="320" />
+              <img src="assets/images/project-booking.svg" alt="Screenshot of an appointment booking system" class="project-img" loading="lazy" width="500" height="320" />
             </div>
             <div class="p-6">
               <h3 class="font-bold text-lg mb-2">Appointment Booking System</h3>
@@ -410,7 +408,7 @@
           <article class="project-card" hidden data-aos="fade-up" data-aos-delay="200">
             <div class="relative overflow-hidden rounded-t-card">
               <span class="project-index" aria-hidden="true">06</span>
-              <img src="https://placehold.co/500x320/315B52/F7F5F0?text=Blog+Platform" alt="Screenshot of a blogging platform" class="project-img" loading="lazy" width="500" height="320" />
+              <img src="assets/images/project-blog.svg" alt="Screenshot of a blogging platform" class="project-img" loading="lazy" width="500" height="320" />
             </div>
             <div class="p-6">
               <h3 class="font-bold text-lg mb-2">Blog Platform</h3>
@@ -505,14 +503,14 @@
     <!-- ==================== CONTACT ==================== -->
     <section id="contact" class="py-24 md:py-32">
       <div class="max-w-content mx-auto px-6 lg:px-10">
-        <div class="text-center mb-16" data-aos="fade-up">
+        <div class="text-center mb-16">
           <p class="eyebrow justify-center"><span class="eyebrow-number">06</span>Contact</p>
           <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">Let's work together</h2>
           <p class="text-muted dark:text-dark-muted mt-4 max-w-xl mx-auto">Have a project in mind or just want to say hello? Send me a message and I'll get back to you soon.</p>
         </div>
 
         <div class="grid lg:grid-cols-5 gap-12 max-w-4xl mx-auto">
-          <div class="lg:col-span-2 space-y-6" data-aos="fade-right">
+          <div class="lg:col-span-2 space-y-6">
             <div class="contact-info-item">
               <div class="contact-info-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
               <div>
@@ -536,7 +534,7 @@
             </div>
           </div>
 
-          <form id="contact-form" class="lg:col-span-3 space-y-5" data-aos="fade-left" novalidate>
+          <form id="contact-form" class="lg:col-span-3 space-y-5" novalidate>
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label for="name" class="form-label">Name</label>
@@ -599,8 +597,8 @@
   </button>
 
   <!-- ==================== SCRIPTS ==================== -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="assets/vendor/aos.js"></script>
+  <script src="assets/vendor/typed.umd.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

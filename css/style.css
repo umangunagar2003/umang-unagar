@@ -1110,16 +1110,28 @@ html.dark .btn-edit:hover { color: var(--ash-grey); }
 .technology-card h3 { margin: 0 0 5px; color: var(--ink); font: 700 1rem/1.2 'Manrope', sans-serif; }
 .technology-card p { margin: 0; color: var(--muted); font-size: .74rem; line-height: 1.45; }
 .tech-index { position: absolute; top: 16px; right: 18px; color: var(--accent-2); font: 700 .65rem/1 'Manrope', sans-serif; letter-spacing: .08em; }
+.tech-index { display: none; }
 
 /* ============================================================
    Editorial SaaS project cards
    ============================================================ */
 #projects { background: var(--paper-2); }
 .project-card { border-color: var(--border-soft); background: var(--surface); }
-.project-card > .relative { background: var(--paper); }
+.project-card > .relative {
+  position: relative;
+  height: 230px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  padding: 12px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--border-soft);
+}
+.project-card > .relative .project-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 13px; box-shadow: 0 8px 18px var(--shadow-card); }
 .project-img { height: 230px; filter: saturate(.82); transition: transform .55s cubic-bezier(.16, 1, .3, 1), filter .55s ease; }
 .project-card:hover .project-img { filter: saturate(1.05); transform: scale(1.025); }
 .project-index { top: 18px; left: 18px; border-color: var(--border-soft); color: var(--ink); background: var(--surface); }
+.project-index { display: none; }
 .project-card > .p-6 { padding: 26px; }
 .project-card h3 { font: 700 1.08rem/1.3 'Manrope', sans-serif; letter-spacing: -.02em; }
 .project-card .text-sm { line-height: 1.65; }
@@ -1142,6 +1154,7 @@ html.dark .btn-edit:hover { color: var(--ash-grey); }
   .skills-controls { align-self: flex-end; margin-top: -50px; }
   .technology-card { width: min(78vw, 300px); min-height: 128px; padding: 18px; }
   .project-img { height: 190px; }
+  .project-card > .relative { height: 190px; padding: 8px; }
   .project-card > .p-6 { padding: 20px; }
   .project-card .flex.items-center.gap-4 { gap: 7px; }
   .project-link { padding-inline: 9px; }
@@ -1159,6 +1172,12 @@ html.dark .contact-value { color: var(--accent-2); }
 html.dark #navbar > nav > a:first-child { color: var(--accent-2); }
 
 @media (max-width: 1023px) {
+  #projects-grid .project-card > .relative {
+    height: auto;
+    aspect-ratio: 500 / 320;
+  }
+  #projects-grid .project-card > .relative .project-img { height: 100%; }
+
   #about .text-center,
   #experience .text-center,
   #services .text-center,
@@ -1173,6 +1192,8 @@ html.dark #navbar > nav > a:first-child { color: var(--accent-2); }
 
   #projects-grid { gap: 14px; }
   #projects-grid .project-img { height: 178px; }
+  #projects-grid .project-card > .relative { height: auto; aspect-ratio: 500 / 320; padding: 9px; }
+  #projects-grid .project-card > .relative .project-img { height: 100%; }
   #projects-grid .project-card > .p-6 { padding: 18px; }
   #projects-grid .project-card h3 { font-size: .98rem; margin-bottom: 7px; }
   #projects-grid .project-card .text-sm { font-size: .78rem; line-height: 1.5; margin-bottom: 12px; }
@@ -1226,6 +1247,8 @@ html.dark #navbar > nav > a:first-child { color: var(--accent-2); }
   #about .about-card { min-height: 0; }
 
   #projects-grid .project-img { height: 160px; }
+  #projects-grid .project-card > .relative { height: auto; aspect-ratio: 500 / 320; padding: 8px; }
+  #projects-grid .project-card > .relative .project-img { height: 100%; }
   #projects-grid .project-card > .p-6 { padding: 16px; }
   #projects-grid .project-card .project-link { font-size: .67rem; }
 
@@ -1304,4 +1327,10 @@ html.dark #navbar > nav > a:first-child { color: var(--accent-2); }
     font-size: .61rem;
     letter-spacing: .02em;
   }
+}
+
+@media (min-width: 1024px) {
+  #contact .contact-info-item { min-width: 0; }
+  #contact .contact-info-item > div:last-child { flex: 1 1 0; width: 0; min-width: 0; max-width: calc(100% - 58px); }
+  #contact .contact-value { display: block; max-width: 100%; white-space: normal; overflow-wrap: anywhere; word-break: break-all; }
 }
