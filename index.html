@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umang | Full Stack Web Developer</title>
+  <meta name="description" content="Umang — Full Stack Web Developer portfolio. I design and build clean, fast, and reliable web applications." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔷</text></svg>" />
+
+  <!-- Google Fonts: Inter (body/UI) + Manrope (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Manrope', 'sans-serif'],
+          },
+          colors: {
+            bg: 'var(--paper)',
+            'bg-secondary': 'var(--paper-2)',
+            text: 'var(--ink)',
+            muted: 'var(--muted)',
+            accent: 'var(--deep-teal)',
+            accent2: 'var(--muted-teal)',
+            border: 'var(--border-soft)',
+            paper: 'var(--paper)',
+            'dark-bg': 'var(--surface)',
+            'dark-bg-secondary': 'var(--paper-2)',
+            'dark-border': 'var(--border-soft)',
+            'dark-muted': 'var(--muted)',
+          },
+          maxWidth: {
+            content: '1280px',
+          },
+          borderRadius: {
+            card: '22px',
+          },
+          boxShadow: {
+            soft: '0 18px 40px rgba(31, 92, 69, 0.08)',
+            softer: '0 10px 24px rgba(31, 92, 69, 0.05)',
+            lift: '0 28px 68px rgba(31, 92, 69, 0.12)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-bg dark:bg-dark-bg text-text dark:text-paper font-sans antialiased transition-colors duration-300">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent">
+    <nav class="max-w-content mx-auto px-6 lg:px-10 flex items-center justify-between h-20" aria-label="Primary navigation">
+      <a href="#home" class="font-serif text-2xl font-semibold tracking-tight italic dark:text-accent2" aria-label="Umang, back to home">
+        Umang<span class="text-accent2 not-italic">.</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center text-[13px] font-medium uppercase tracking-[0.12em]">
+        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="hidden md:flex items-center gap-4">
+        <!-- Dark mode toggle -->
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="w-10 h-10 rounded-full border border-border dark:border-dark-border flex items-center justify-center hover:bg-bg-secondary dark:hover:bg-dark-bg-secondary transition-colors">
+          <i class="fa-solid fa-moon text-sm" id="theme-icon" aria-hidden="true"></i>
+        </button>
+        <a href="assets/Umang-Unagar.pdf" download class="btn-edit btn-edit-sm">
+          Resume
+        </a>
+      </div>
+
+      <!-- Mobile controls -->
+      <div class="flex items-center gap-3 md:hidden">
+        <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="w-10 h-10 rounded-full border border-border dark:border-dark-border flex items-center justify-center">
+          <i class="fa-solid fa-moon text-sm" aria-hidden="true"></i>
+        </button>
+        <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="w-10 h-10 rounded-full border border-border dark:border-dark-border flex items-center justify-center">
+          <i class="fa-solid fa-bars text-sm" id="menu-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-bg dark:bg-dark-bg border-t border-border dark:border-dark-border">
+      <ul class="flex flex-col px-6 py-4 gap-1 text-sm font-medium">
+        <li><a href="#home" class="mobile-nav-link block py-3">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link block py-3">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link block py-3">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link block py-3">Projects</a></li>
+        <li><a href="#experience" class="mobile-nav-link block py-3">Experience</a></li>
+        <li><a href="#contact" class="mobile-nav-link block py-3">Contact</a></li>
+        <li class="pt-2">
+          <a href="assets/Umang-Unagar.pdf" download class="btn-edit btn-edit-sm w-full justify-center">
+            Download Resume
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="relative pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+      <div class="max-w-content mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right" data-aos-duration="700">
+          <p class="hero-eyebrow">
+            <span class="hero-eyebrow-line" aria-hidden="true"></span> Hello, I'm
+          </p>
+          <h1 class="hero-name relative font-serif text-6xl sm:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight mb-5" data-watermark="Umang">
+            Umang
+          </h1>
+          <h2 class="font-serif italic text-2xl sm:text-3xl text-muted dark:text-dark-muted mb-7 h-10 font-normal">
+            <span id="typed-text" class="text-accent2 not-italic font-medium"></span>
+          </h2>
+          <p class="text-muted dark:text-dark-muted text-base sm:text-lg leading-relaxed mb-10 max-w-lg">
+            I design and build fast, accessible, and reliable web applications — from pixel-perfect
+            interfaces to well-structured backends. I care about clean code, thoughtful UX, and
+            shipping products that people enjoy using.
+          </p>
+
+          <div class="flex flex-nowrap items-center gap-4 mb-10">
+            <a href="assets/Umang-Unagar.pdf" download class="btn-edit btn-edit-filled magnetic">
+              <i class="fa-solid fa-download" aria-hidden="true"></i><span>Download Resume</span>
+            </a>
+            <a href="#projects" class="btn-edit magnetic">
+              <span>View Projects</span><i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="flex items-center gap-5">
+            <a href="https://github.com/umangunagar2003" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="social-icon">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/umang-unagar-19344727a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="social-icon">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/umang-unagar-19344727a" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile" class="social-icon">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:unagarumang2003@gmail.com" aria-label="Send an email" class="social-icon">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Illustration -->
+        <div class="relative flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="700">
+          <div class="absolute inset-0 -z-10 flex items-center justify-center">
+            <div class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-accent/5 blur-3xl"></div>
+          </div>
+          <svg class="w-full max-w-md" viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a developer working on a laptop">
+            <rect x="60" y="60" width="360" height="240" rx="4" fill="#FCFBF8" stroke="#E3DED5" stroke-width="2"/>
+            <rect x="60" y="60" width="360" height="36" rx="4" fill="#E3DED5"/>
+            <circle cx="82" cy="78" r="5" fill="#68736D"/>
+            <circle cx="100" cy="78" r="5" fill="#68736D"/>
+            <circle cx="118" cy="78" r="5" fill="#68736D"/>
+            <rect x="90" y="126" width="120" height="10" rx="2" fill="#315B52"/>
+            <rect x="90" y="150" width="200" height="8" rx="2" fill="#E3DED5"/>
+            <rect x="90" y="168" width="160" height="8" rx="2" fill="#E3DED5"/>
+            <rect x="90" y="186" width="180" height="8" rx="2" fill="#E3DED5"/>
+            <rect x="90" y="212" width="90" height="34" rx="2" fill="#5E8578"/>
+            <text x="106" y="234" font-family="Inter, sans-serif" font-size="12" fill="#FFFFFF" font-weight="600">Deploy</text>
+            <rect x="20" y="320" width="440" height="16" rx="2" fill="#E3DED5"/>
+            <rect x="150" y="20" width="160" height="34" rx="17" fill="#FCFBF8" stroke="#E3DED5" stroke-width="2"/>
+            <text x="178" y="42" font-family="Manrope, sans-serif" font-style="italic" font-size="13" fill="#222A2E" font-weight="600">&lt;/&gt; clean code</text>
+            <circle cx="410" cy="330" r="26" fill="#FCFBF8" stroke="#E3DED5" stroke-width="2"/>
+            <path d="M400 330l7 7 13-15" stroke="#315B52" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+
+      <a href="#about" aria-label="Scroll to About section" class="scroll-indicator hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-muted dark:text-dark-muted text-xs">
+        <span>Scroll</span>
+        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="py-24 md:py-32 bg-bg-secondary dark:bg-dark-bg-secondary">
+      <div class="max-w-content mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p class="eyebrow justify-center"><span class="eyebrow-number">01</span>About Me</p>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">Getting to know me</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="relative framed" data-aos="fade-right">
+            <div class="rounded-card overflow-hidden shadow-soft border border-border dark:border-dark-border max-w-sm mx-auto">
+              <img
+                src="assets/umang-unagar.png"
+                alt="Portrait of Umang, full stack web developer"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                width="480" height="560"
+              />
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <p class="about-lead text-muted dark:text-dark-muted text-lg leading-relaxed mb-8">
+              I'm a full stack web developer who enjoys turning ideas into clean, functional
+              products. My focus is on writing maintainable code, designing intuitive interfaces,
+              and continuously learning new tools that help me build better software. Outside of
+              work, I like exploring new frameworks and contributing to small open-source projects.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+                <h3 class="font-semibold mb-1">Education</h3>
+                <p class="text-sm text-muted dark:text-dark-muted">MCA &amp; BCA, Computer Applications</p>
+              </div>
+              <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+                <h3 class="font-semibold mb-1">Experience</h3>
+                <p class="text-sm text-muted dark:text-dark-muted">4+ years, freelance &amp; internships</p>
+              </div>
+              <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+                <h3 class="font-semibold mb-1">Location</h3>
+                <p class="text-sm text-muted dark:text-dark-muted">Surat, Gujarat, India</p>
+              </div>
+              <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+                <h3 class="font-semibold mb-1">Availability</h3>
+                <p class="text-sm text-muted dark:text-dark-muted">Open to opportunities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills" class="py-24 md:py-32">
+      <div class="max-w-content mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p class="eyebrow justify-center"><span class="eyebrow-number">02</span>Skills</p>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">What I work with</h2>
+        </div>
+
+        <div class="skills-showcase" data-aos="fade-up">
+          <div class="skills-toolbar">
+            <div class="skill-tabs" role="tablist" aria-label="Skill categories">
+              <button class="skill-tab is-active" type="button" role="tab" aria-selected="true" data-skill-category="all">All skills</button>
+              <button class="skill-tab" type="button" role="tab" aria-selected="false" data-skill-category="frontend">Frontend</button>
+              <button class="skill-tab" type="button" role="tab" aria-selected="false" data-skill-category="backend">Backend</button>
+              <button class="skill-tab" type="button" role="tab" aria-selected="false" data-skill-category="programming">Programming</button>
+              <button class="skill-tab" type="button" role="tab" aria-selected="false" data-skill-category="tools">AI &amp; tools</button>
+            </div>
+            <div class="skills-controls">
+              <button class="skill-arrow" type="button" data-skill-direction="prev" aria-label="Previous skills"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+              <button class="skill-arrow" type="button" data-skill-direction="next" aria-label="Next skills"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </div>
+
+          <div class="skills-viewport" id="skills-viewport" tabindex="0" aria-label="Technology skills carousel">
+            <div class="skills-track" id="skills-track">
+              <article class="technology-card" data-skill-category="frontend"><div class="tech-icon"><img src="assets/images/skill-html.svg" alt="" aria-hidden="true"></div><div><h3>HTML</h3><p>Advanced · Semantic UI</p></div><span class="tech-index">01</span></article>
+              <article class="technology-card" data-skill-category="frontend"><div class="tech-icon"><img src="assets/images/skill-css.svg" alt="" aria-hidden="true"></div><div><h3>CSS</h3><p>Advanced · Responsive systems</p></div><span class="tech-index">02</span></article>
+              <article class="technology-card" data-skill-category="frontend"><div class="tech-icon"><img src="assets/images/skill-javascript.svg" alt="" aria-hidden="true"></div><div><h3>JavaScript</h3><p>Advanced · Interaction design</p></div><span class="tech-index">03</span></article>
+              <article class="technology-card" data-skill-category="frontend"><div class="tech-icon"><img src="assets/images/skill-tailwind.svg" alt="" aria-hidden="true"></div><div><h3>Tailwind CSS</h3><p>Advanced · UI architecture</p></div><span class="tech-index">04</span></article>
+              <article class="technology-card" data-skill-category="frontend"><div class="tech-icon"><img src="assets/images/skill-vue.svg" alt="" aria-hidden="true"></div><div><h3>Vue.js</h3><p>Intermediate · Component systems</p></div><span class="tech-index">05</span></article>
+              <article class="technology-card" data-skill-category="backend"><div class="tech-icon"><img src="assets/images/skill-php.svg" alt="" aria-hidden="true"></div><div><h3>PHP</h3><p>Advanced · Product backends</p></div><span class="tech-index">06</span></article>
+              <article class="technology-card" data-skill-category="backend"><div class="tech-icon"><img src="assets/images/skill-laravel.svg" alt="" aria-hidden="true"></div><div><h3>Laravel</h3><p>Advanced · Full-stack delivery</p></div><span class="tech-index">07</span></article>
+              <article class="technology-card" data-skill-category="backend"><div class="tech-icon"><img src="assets/images/skill-mysql.svg" alt="" aria-hidden="true"></div><div><h3>MySQL</h3><p>Advanced · Data modeling</p></div><span class="tech-index">08</span></article>
+              <article class="technology-card" data-skill-category="backend"><div class="tech-icon"><img src="assets/images/skill-openapi.svg" alt="" aria-hidden="true"></div><div><h3>REST API</h3><p>Advanced · Reliable services</p></div><span class="tech-index">09</span></article>
+              <article class="technology-card" data-skill-category="programming"><div class="tech-icon"><img src="assets/images/skill-python.svg" alt="" aria-hidden="true"></div><div><h3>Python</h3><p>Learning · Automation &amp; AI</p></div><span class="tech-index">10</span></article>
+              <article class="technology-card" data-skill-category="tools"><div class="tech-icon"><img src="assets/images/skill-cursor.svg" alt="" aria-hidden="true"></div><div><h3>Cursor</h3><p>Daily driver · AI-assisted code</p></div><span class="tech-index">11</span></article>
+              <article class="technology-card" data-skill-category="tools"><div class="tech-icon"><img src="assets/images/skill-claude.svg" alt="" aria-hidden="true"></div><div><h3>Claude Code</h3><p>Working knowledge · Pairing</p></div><span class="tech-index">12</span></article>
+              <article class="technology-card" data-skill-category="tools"><div class="tech-icon"><img src="assets/images/skill-antigravity.svg" alt="" aria-hidden="true"></div><div><h3>Antigravity</h3><p>Exploring · New workflows</p></div><span class="tech-index">13</span></article>
+              <article class="technology-card" data-skill-category="tools"><div class="tech-icon"><img src="assets/images/skill-prompt.svg" alt="" aria-hidden="true"></div><div><h3>Prompt Engineering</h3><p>Advanced · Clear thinking</p></div><span class="tech-index">14</span></article>
+              <article class="technology-card" data-skill-category="tools"><div class="tech-icon"><img src="assets/images/skill-git.svg" alt="" aria-hidden="true"></div><div><h3>Git</h3><p>Advanced · Version control</p></div><span class="tech-index">15</span></article>
+              <article class="technology-card" data-skill-category="tools"><div class="tech-icon"><img src="assets/images/skill-github.svg" alt="" aria-hidden="true"></div><div><h3>GitHub</h3><p>Advanced · Collaboration</p></div><span class="tech-index">16</span></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects" class="py-24 md:py-32 bg-bg-secondary dark:bg-dark-bg-secondary">
+      <div class="max-w-content mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p class="eyebrow justify-center"><span class="eyebrow-number">03</span>Projects</p>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">Selected work</h2>
+        </div>
+
+        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="relative overflow-hidden rounded-t-card">
+              <span class="project-index" aria-hidden="true">01</span>
+              <img src="https://placehold.co/500x320/5E8578/222A2E?text=Laravel+CRM" alt="Laravel CRM for WooCommerce e-commerce platform" class="project-img" loading="lazy" width="500" height="320" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">Laravel CRM for WooCommerce</h3>
+              <p class="text-sm text-muted dark:text-dark-muted mb-4">A centralized CRM and admin layer syncing WooCommerce orders, users, and products through REST APIs and webhooks.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="badge">Laravel</span>
+                <span class="badge">Vue.js</span>
+                <span class="badge">Microservices</span>
+                <span class="badge">WooCommerce</span>
+                <span class="badge">MySQL</span>
+              </div>
+              <div class="project-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live production project</div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative overflow-hidden rounded-t-card">
+              <span class="project-index" aria-hidden="true">02</span>
+              <img src="https://placehold.co/500x320/315B52/F7F5F0?text=Hospital+Management" alt="Hospital Management System project" class="project-img" loading="lazy" width="500" height="320" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">Hospital Management System</h3>
+              <p class="text-sm text-muted dark:text-dark-muted mb-4">Scalable Laravel backends for standalone hospital operations and multi-tenant HMS-SaaS deployment from one modular codebase.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="badge">Laravel</span>
+                <span class="badge">Eloquent ORM</span>
+                <span class="badge">REST API</span>
+                <span class="badge">MySQL</span>
+              </div>
+              <div class="project-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live production project</div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="relative overflow-hidden rounded-t-card">
+              <span class="project-index" aria-hidden="true">03</span>
+              <img src="https://placehold.co/500x320/222A2E/F7F5F0?text=LMS+Application" alt="Learning Management System web application" class="project-img" loading="lazy" width="500" height="320" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">LMS Web Application</h3>
+              <p class="text-sm text-muted dark:text-dark-muted mb-4">A new learning platform focused on structured course content, clear learner flows, and a reliable foundation for future growth.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="badge">Laravel</span>
+                <span class="badge">Vue.js</span>
+                <span class="badge">REST API</span>
+                <span class="badge">MySQL</span>
+              </div>
+              <div class="project-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live production project</div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" hidden data-aos="fade-up" data-aos-delay="0">
+            <div class="relative overflow-hidden rounded-t-card">
+              <span class="project-index" aria-hidden="true">04</span>
+              <img src="https://placehold.co/500x320/FCFBF8/315B52?text=Weather+Dashboard" alt="Screenshot of a weather dashboard application" class="project-img" loading="lazy" width="500" height="320" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">Weather Dashboard</h3>
+              <p class="text-sm text-muted dark:text-dark-muted mb-4">A responsive dashboard that visualizes forecasts using a public weather API.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="badge">JavaScript</span>
+                <span class="badge">API</span>
+                <span class="badge">HTML</span>
+              </div>
+              <div class="project-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live production project</div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card" hidden data-aos="fade-up" data-aos-delay="100">
+            <div class="relative overflow-hidden rounded-t-card">
+              <span class="project-index" aria-hidden="true">05</span>
+              <img src="https://placehold.co/500x320/5E8578/222A2E?text=Booking+System" alt="Screenshot of an appointment booking system" class="project-img" loading="lazy" width="500" height="320" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">Appointment Booking System</h3>
+              <p class="text-sm text-muted dark:text-dark-muted mb-4">A scheduling tool for small businesses with automated email confirmations.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="badge">Laravel</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Tailwind</span>
+              </div>
+              <div class="project-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live production project</div>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card" hidden data-aos="fade-up" data-aos-delay="200">
+            <div class="relative overflow-hidden rounded-t-card">
+              <span class="project-index" aria-hidden="true">06</span>
+              <img src="https://placehold.co/500x320/315B52/F7F5F0?text=Blog+Platform" alt="Screenshot of a blogging platform" class="project-img" loading="lazy" width="500" height="320" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">Blog Platform</h3>
+              <p class="text-sm text-muted dark:text-dark-muted mb-4">A markdown-powered blogging platform with tags, search, and reading time estimates.</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="badge">PHP</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">JavaScript</span>
+              </div>
+              <div class="project-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Live production project</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience" class="py-24 md:py-32">
+      <div class="max-w-content mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p class="eyebrow justify-center"><span class="eyebrow-number">04</span>Experience</p>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">Where I've been</h2>
+        </div>
+
+        <div class="relative max-w-2xl mx-auto">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date-new">Jun 2024 – Present</span>
+              <span class="text-xs font-semibold text-accent uppercase tracking-wide">2024 — Present</span>
+              <h3 class="font-bold text-lg mt-1 mb-1">Laravel Developer</h3>
+              <p class="timeline-company">Sourrcecube Technologies Pvt. Ltd.</p>
+              <p class="text-sm text-muted dark:text-dark-muted">Developing and maintaining Laravel applications for production-ready web solutions.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-icon"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date-new">Jun 2023 – May 2024</span>
+              <span class="text-xs font-semibold text-accent uppercase tracking-wide">2023 — 2024</span>
+              <h3 class="font-bold text-lg mt-1 mb-1">Laravel Developer</h3>
+              <p class="timeline-company">InfyOm Technologies</p>
+              <p class="text-sm text-muted dark:text-dark-muted">Built and supported Laravel-based products with a focus on reliable backend delivery.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-icon"><i class="fa-brands fa-php" aria-hidden="true"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date-new">Apr 2022 – May 2023</span>
+              <span class="text-xs font-semibold text-accent uppercase tracking-wide">2022 — 2023</span>
+              <h3 class="font-bold text-lg mt-1 mb-1">PHP Developer Intern</h3>
+              <p class="timeline-company">Loopcode Technology</p>
+              <p class="text-sm text-muted dark:text-dark-muted">Started professional development work with PHP and web application fundamentals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="py-24 md:py-32 bg-bg-secondary dark:bg-dark-bg-secondary">
+      <div class="max-w-content mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p class="eyebrow justify-center"><span class="eyebrow-number">05</span>Services</p>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">How I can help</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="service-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+            <h3 class="font-bold text-lg mb-3">Web Development</h3>
+            <p class="text-sm text-muted dark:text-dark-muted">End-to-end development of web applications, from database design to a polished, functional interface.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></div>
+            <h3 class="font-bold text-lg mb-3">Responsive Websites</h3>
+            <p class="text-sm text-muted dark:text-dark-muted">Interfaces that adapt cleanly across mobile, tablet, and desktop, built with accessibility in mind.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+            <h3 class="font-bold text-lg mb-3">Backend Development</h3>
+            <p class="text-sm text-muted dark:text-dark-muted">Reliable APIs and server-side logic using PHP and Laravel, backed by well-structured MySQL databases.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-24 md:py-32">
+      <div class="max-w-content mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p class="eyebrow justify-center"><span class="eyebrow-number">06</span>Contact</p>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">Let's work together</h2>
+          <p class="text-muted dark:text-dark-muted mt-4 max-w-xl mx-auto">Have a project in mind or just want to say hello? Send me a message and I'll get back to you soon.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-12 max-w-4xl mx-auto">
+          <div class="lg:col-span-2 space-y-6" data-aos="fade-right">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+              <div>
+                <p class="text-sm text-muted dark:text-dark-muted">Email</p>
+                <p class="font-semibold contact-value">unagarumang2003@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+              <div>
+                <p class="text-sm text-muted dark:text-dark-muted">Location</p>
+                <p class="font-semibold contact-value">Surat, Gujarat, India</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+              <div>
+                <p class="text-sm text-muted dark:text-dark-muted">Status</p>
+                <p class="font-semibold contact-value">Open to opportunities</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="contact-form" class="lg:col-span-3 space-y-5" data-aos="fade-left" novalidate>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" aria-describedby="name-error" />
+                <p id="name-error" class="form-error" role="alert"></p>
+              </div>
+              <div>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" aria-describedby="email-error" />
+                <p id="email-error" class="form-error" role="alert"></p>
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" aria-describedby="subject-error" />
+              <p id="subject-error" class="form-error" role="alert"></p>
+            </div>
+            <div>
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" rows="5" class="form-input resize-none" placeholder="Tell me about your project..." aria-describedby="message-error"></textarea>
+              <p id="message-error" class="form-error" role="alert"></p>
+            </div>
+            <button type="submit" class="btn-edit btn-edit-filled magnetic">
+              Send Message <i class="fa-solid fa-paper-plane text-sm" aria-hidden="true"></i>
+            </button>
+            <p id="form-success" class="hidden items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400 mt-3" role="status">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Your message has been sent successfully!
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-border dark:border-dark-border py-10">
+    <div class="max-w-content mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="text-sm text-muted dark:text-dark-muted">&copy; <span id="year"></span> <span class="font-serif italic">Umang</span>. All rights reserved.</p>
+
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/umangunagar2003" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="social-icon">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/umang-unagar-19344727a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="social-icon">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/umang-unagar-19344727a" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile" class="social-icon">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:unagarumang2003@gmail.com" aria-label="Send an email" class="social-icon">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-accent text-white shadow-lift flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-40">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
