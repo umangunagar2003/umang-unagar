@@ -38,6 +38,15 @@ function initInitialScrollPosition() {
    AOS (Animate On Scroll) init
    ========================================================================== */
 function initAOS() {
+  const revealInitialContent = () => {
+    document.querySelectorAll('[data-aos]').forEach((element) => {
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        element.classList.add('aos-animate');
+      }
+    });
+  };
+
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 750,
@@ -45,6 +54,10 @@ function initAOS() {
       once: true,
       offset: 60,
     });
+    window.requestAnimationFrame(revealInitialContent);
+  } else {
+    // Keep above-the-fold content visible if the animation asset is unavailable.
+    revealInitialContent();
   }
 }
 
