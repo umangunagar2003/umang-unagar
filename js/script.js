@@ -6,6 +6,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initInitialScrollPosition();
   initAOS();
   initTypedText();
   initNavbarScroll();
@@ -20,6 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initFooterYear();
   initMagneticButtons();
 });
+
+/* Start a fresh visit at Home instead of restoring a previous scroll position. */
+function initInitialScrollPosition() {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  if (!window.location.hash) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    window.requestAnimationFrame(() => window.scrollTo(0, 0));
+  }
+}
 
 /* ==========================================================================
    AOS (Animate On Scroll) init
